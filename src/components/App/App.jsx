@@ -6,6 +6,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
 
+
+
+
+
+
+  
+
   useEffect(() => {
     getPizzas();
   }, []);
@@ -22,6 +29,7 @@ function App() {
         alert(`HEY - Can't get pizzas!`); 
       }) 
   }
+
 
   return (
     <div className='App'>
