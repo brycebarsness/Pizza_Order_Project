@@ -5,15 +5,17 @@ import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
-const pizzaReducer = (state = 0, action) => {
-
+const pizzaList = (state = [], action) => {
+    if (action.type === 'SET_PIZZAS') {
+        return action.payload;
+    }
     return state;
 };
 
 const storeInstance = createStore(
     combineReducers(
         {
-            pizzaReducer,
+            pizzaList: pizzaList,
         }
     )
 );

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList.jsx';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
 
@@ -10,16 +10,34 @@ function App() {
 
 
 
+
   
+
+  useEffect(() => {
+    getPizzas();
+  }, []);
+
+  const dispatch = useDispatch(); 
+
+  const getPizzas = () => { 
+    axios.get('/api/pizza') 
+      .then( response => { 
+        dispatch({ type: `SET_PIZZAS`, payload: response.data }); 
+      }) 
+      .catch( error => { 
+        console.log(`HEY - Can't get pizzas! ${error}`); 
+        alert(`HEY - Can't get pizzas!`); 
+      }) 
+  }
+
 
   return (
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
-      <PizzaList />
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
+      <PizzaList getPizzas={getPizzas}/>
+
   
     </div>
   );

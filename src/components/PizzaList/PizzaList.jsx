@@ -1,15 +1,16 @@
-import axios from 'axios';
 import './PizzaList.css';
+import { useSelector } from 'react-redux';
 
 function PizzaList() {
-
-    axios.get('/api/pizza').then((response) =>{
-        
-    })
-
+    const pizzas = useSelector(store => store.pizzaList)
+    console.log(pizzas);
     return (
         <>
-
+        <div /*className="card-deck col d-flex justify-content-center"*/>
+            {pizzas.map((pizza, index) => (
+                <div key={index}>{pizza.name}</div>
+            ))}
+            </div >
         </>
     );
 }
@@ -17,11 +18,28 @@ function PizzaList() {
 export default PizzaList;
 
 
-// Make the async request
-axios.get('/stuff').then( (response) => {
-    // THEN when response comes back, update redux
-    dispatch({
-      type: 'SET_STUFF',
-      payload: response.data
-    })
-}) 
+/*
+            <>
+                {images.map(image =>
+                (<div key={image.id}>
+                    <GalleryItem
+                        image={image}
+                        updateLikes={updateLikes}
+                        deleteImage={deleteImage}
+                    />
+                </div>
+                )
+                )}
+                <UploadForm
+                    newImageDescription={newImageDescription}
+                    setNewImageDescription={setNewImageDescription}
+                    newImageName={newImageName}
+                    setNewImageName={setNewImageName}
+                    newImageYear={newImageYear}
+                    setNewImageYear={setNewImageYear}
+                    newImageURL={newImageURL}
+                    setNewImageURL={setNewImageURL}
+                    addImage={addImage}
+                />
+            </>
+*/
