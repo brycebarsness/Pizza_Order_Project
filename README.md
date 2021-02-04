@@ -71,7 +71,6 @@ After starting up the server, the following routes should be available. You can 
 
 **Returns** an array of orders.
 
-
 ## BASE REQUIREMENTS
 
 Your client has asked your team to build a pizza ordering system.
