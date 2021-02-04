@@ -1,16 +1,21 @@
 import './PizzaList.css';
 import { useSelector } from 'react-redux';
+import PizzaItem from '../PizzaItem/PizzaItem';
 
 function PizzaList() {
-    const pizzas = useSelector(store => store.pizzaList)
-    console.log(pizzas);
+    const pizzas = useSelector(store => store.pizzaList);
+
     return (
         <>
-        <div /*className="card-deck col d-flex justify-content-center"*/>
-            {pizzas.map((pizza, index) => (
-                <div key={index}>{pizza.name}</div>
-            ))}
-            </div >
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+        {pizzas.map((pizza) => (
+        <div key={pizza.id}>
+            <PizzaItem 
+            pizza={pizza}
+            />
+            </div>
+        ))} 
+        </div>
         </>
     );
 }

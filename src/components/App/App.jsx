@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList.jsx';
 import { useSelector, useDispatch } from 'react-redux';
+import Header from '../Header/Header';
 
 function App() {
 
@@ -24,10 +25,8 @@ function App() {
   }
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
+    <div className='App container'>
+      <Header />
       <PizzaList getPizzas={getPizzas}/>
 
   
