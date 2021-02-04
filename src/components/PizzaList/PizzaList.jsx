@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import PizzaItem from '../PizzaItem/PizzaItem';
 
 function PizzaList() {
+    //grabs the pizza list from the store
     const pizzas = useSelector(store => store.pizzaList);
+
 
     return (
         <>
@@ -16,35 +18,10 @@ function PizzaList() {
             </div>
         ))} 
         </div>
+        <button type="button" className="btn-lg btn-primary">Next</button>
         </>
+        
     );
 }
 
 export default PizzaList;
-
-
-/*
-            <>
-                {images.map(image =>
-                (<div key={image.id}>
-                    <GalleryItem
-                        image={image}
-                        updateLikes={updateLikes}
-                        deleteImage={deleteImage}
-                    />
-                </div>
-                )
-                )}
-                <UploadForm
-                    newImageDescription={newImageDescription}
-                    setNewImageDescription={setNewImageDescription}
-                    newImageName={newImageName}
-                    setNewImageName={setNewImageName}
-                    newImageYear={newImageYear}
-                    setNewImageYear={setNewImageYear}
-                    newImageURL={newImageURL}
-                    setNewImageURL={setNewImageURL}
-                    addImage={addImage}
-                />
-            </>
-*/

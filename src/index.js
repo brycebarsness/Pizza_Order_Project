@@ -12,10 +12,21 @@ const pizzaList = (state = [], action) => {
     return state;
 };
 
+const pizzaCart = (state = [], action) => {
+    if (action.type === 'ADD_TO_CART') {
+        return [...state, action.payload];
+    }
+    else if (action.type === 'REMOVE_FROM_CART') {
+        return state.filter(pizza => pizza.id != action.payload.id);
+    }
+    return state;
+};
+
 const storeInstance = createStore(
     combineReducers(
         {
             pizzaList: pizzaList,
+            pizzaCart: pizzaCart
         }
     )
 );
@@ -28,3 +39,5 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
   );
+
+  
