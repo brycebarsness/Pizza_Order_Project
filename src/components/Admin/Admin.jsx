@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux'
 
 
-function OrdersList() {
+function OrderList() {
     const ordersList = useSelector(store => store.ordersList);
 
     return (

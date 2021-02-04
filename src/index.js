@@ -16,6 +16,7 @@ const storeInstance = createStore(
     combineReducers(
         {
             pizzaList: pizzaList,
+            orderList: orderList,
         }
     )
 );
