@@ -1,5 +1,5 @@
-import React from React;
-import {useState} from React;
+import React from 'react';
+import {useState} from 'react';
 import { useDispatch } from 'react-redux';
 
 function CustomerInfo() {

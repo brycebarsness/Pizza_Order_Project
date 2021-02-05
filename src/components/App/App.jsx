@@ -15,6 +15,7 @@ function App() {
 
   useEffect(() => {
     getPizzas();
+    getOrders();
   }, []);
 
   const dispatch = useDispatch();
