@@ -16,7 +16,7 @@ function Checkout() {
     }
     const emptyCart = () => {
         console.log(pizzas)
-        //dispatch ({type: 'SUBMIT_ORDER', payload ({pizzas})})
+        dispatch ({type: 'SET_ORDERS', payload: pizzas})
         dispatch ({type: 'CLEAR_CART'})
     }
     return (
