@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
+
 import PizzaList from '../PizzaList/PizzaList.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../Header/Header';
@@ -40,6 +43,7 @@ function App() {
 
 
   return (
+
     <Router>
       <Header />
 
@@ -53,6 +57,7 @@ function App() {
       </div>
       <Footer />
     </Router>
+
   );
 }
 
