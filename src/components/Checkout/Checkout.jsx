@@ -25,7 +25,7 @@ function Checkout() {
         history.push('/')
     }
        //grabs the pizza list from the store
-    const customerInfo = useSelector(store => store.customerInfo);
+    const customerInfo = useSelector(store => store.customerInfo),
  
     return (
         <>
@@ -38,7 +38,8 @@ function Checkout() {
                         <p>{customerInfo.city}{customerInfo.zip}</p></address>
                 </div>
                 <div>
-                    <span id="pickupType">For Delivery</span>
+                    <span id="pickupType">{customerInfo.type= true ? (<span>For Delivery</span>) : (<span>Pick-Up</span>)}
+                    </span>
                 </div>
             </div>
             <table className="table table-bordered table-hover">
