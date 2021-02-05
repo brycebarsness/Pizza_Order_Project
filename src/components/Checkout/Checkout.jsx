@@ -1,17 +1,23 @@
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Checkout() {
+    const dispatch = useDispatch();
     //Get pizzas from the store
     const pizzas = useSelector(store => store.pizzaCart);
     //add up cart
-    const addUpCart =(cart)=> {
+    const addUpCart = (cart) => {
         let sum = 0;
         for (const pizza of cart) {
             sum += Number(pizza.price);
         }
         return sum.toFixed(2);
+    }
+    const emptyCart = () => {
+        console.log(pizzas)
+        //dispatch ({type: 'SUBMIT_ORDER', payload ({pizzas})})
+        dispatch ({type: 'CLEAR_CART'})
     }
     return (
         <>
@@ -20,8 +26,8 @@ function Checkout() {
                 <div id="address">
                     <address>
                         <p>Mitchell Scott</p>
-                    <p>123 Dummy Data drive</p>
-                    <p>Fargo, ND 56425</p></address>
+                        <p>123 Dummy Data drive</p>
+                        <p>Fargo, ND 56425</p></address>
                 </div>
                 <div>
                     <span id="pickupType">For Delivery</span>
@@ -49,11 +55,15 @@ function Checkout() {
                 </tbody>
             </table>
             <div id="totalDiv">
-            <span id="checkoutPrice">Total: ${addUpCart(pizzas)}</span>
+                <span id="checkoutPrice">Total: ${addUpCart(pizzas)}</span>
             </div>
-            
+
             <button
-            className="btn-lg btn-info" type="button">Checkout</button>
+                onClick={() => emptyCart()}
+                className="btn-lg btn-info"
+                type="button">
+                Checkout
+            </button>
         </>
     );
 }
