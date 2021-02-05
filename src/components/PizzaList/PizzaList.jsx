@@ -6,10 +6,9 @@ import { useHistory } from 'react-router-dom';
 function PizzaList() {   
     //grabs the pizza list from the store
     const pizzas = useSelector(store => store.pizzaList);
-     const history = useHistory();
+    const history = useHistory();
     
     const sendNextButton = () => {
-     
         history.push('/CustomerInfo');
     }
     return (
