@@ -1,3 +1,4 @@
+
 import {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -19,6 +20,7 @@ function CustomerInfo() {
       setCity(''),
       setZip(''),
       setDelivery('false')
+
 
     } // end handleChange
 
@@ -69,10 +71,12 @@ function CustomerInfo() {
         />
         <input 
           required 
+
           type="checkbox"
           value={delivery}
           onChange={(event) => setDelivery(event.target.value)}
         />
+
           <button type="submit">
           Next
         </button>
