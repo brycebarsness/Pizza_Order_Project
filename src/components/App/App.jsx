@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
-
+import Admin from '../Admin/Admin';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
 
 import PizzaList from '../PizzaList/PizzaList.jsx';
@@ -41,7 +41,6 @@ function App() {
       }) 
   }
 
-
   return (
 
     <Router>
@@ -52,13 +51,15 @@ function App() {
         <Route exact path='/' component={PizzaList} getPizzas={getPizzas} />
         <Route path='/CustomerInfo' component={CustomerInfo} getPizzas={getPizzas} />
         <Route path='/Checkout' component={Checkout} getPizzas={getPizzas} />
-       
+
+        <OrdersList /> 
+        <Route path='/Admin' component={Admin} />
 
         </Switch>
       </div>
       <Footer />
     </Router>
-
+    
   );
 }
 
