@@ -12,12 +12,24 @@ function CustomerInfo() {
 
   const dispatch = useDispatch();
 
-  let [name, setName] = useState('');
-  let [street, setStreet] = useState('');
-  let [city, setCity] = useState('');
-  let [zip, setZip] = useState('');
-  let [delivery, setDelivery] = useState(false);
 
+    const dispatch = useDispatch();
+    const history = useHistory()
+    let [name, setName]= useState('');
+    let [street, setStreet] = useState('');
+    let [city, setCity]= useState('');
+    let [zip, setZip]= useState('');
+    let [delivery, setDelivery]= useState(false);
+    
+
+   const resetInput = event =>{
+        console.log( 'resetInput');
+      setName(''),
+      setStreet(''),
+      setCity(''),
+      setZip(''),
+      setDelivery(false)
+   }
 
   const resetInput = event => {
     console.log('resetInput', event.target.value);
@@ -33,14 +45,17 @@ function CustomerInfo() {
   const handleSubmit = event => {
     event.preventDefault();
     let customerInfo = {
-      customer_name: name,
-      street_address: street,
-      city: city,
-      zip: zip,
-      delivery: delivery
-    };
-    dispatch({ type: 'CUSTOMER_INFO', payload: customerInfo });
-    console.log(`in customerInfo form`, { name, street, city, zip, delivery });
+
+                        customer_name: name, 
+                        street_address: street, 
+                        city: city, 
+                        zip: zip, 
+                        delivery: delivery
+                    };
+    dispatch( { type: 'CUSTOMER_INFO', payload: customerInfo } );
+    console.log(`in customerInfo form`, {name, street, city, zip, delivery});
+    history.push('/Checkout')
+
     resetInput();
   }
   return (

@@ -1,9 +1,11 @@
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function Checkout() {
     const dispatch = useDispatch();
+    const history = useHistory();
     //Get pizzas from the store
     const pizzas = useSelector(store => store.pizzaCart);
     //add up cart
@@ -18,6 +20,7 @@ function Checkout() {
         console.log(pizzas)
         dispatch ({type: 'SET_ORDERS', payload: pizzas})
         dispatch ({type: 'CLEAR_CART'})
+        history.push('/')
     }
     return (
         <>
