@@ -1,5 +1,6 @@
 import './Header.css';
 import { useSelector, useDispatch } from 'react-redux';
+import {Link} from "react-router-dom";
 
 function Header() {
     //bring in the cart from the store
@@ -14,7 +15,7 @@ function Header() {
     }
     return (
         <header id="navbar" className='App-header'>
-            <img src="images/edawhite.png" alt="eda" />
+            <Link to="/"><img src="images/edawhite.png" alt="eda" /></Link>
             <h1 className='App-title'>EDA Pizza</h1>
             <div id="totalPrice">
                 {/*TODO: put the cart before the horse... um, i mean, put the cart in front of the price */}
