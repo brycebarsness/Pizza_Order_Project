@@ -18,6 +18,9 @@ const pizzaCart = (state = [], action) => {
     }
     else if (action.type === 'REMOVE_FROM_CART') {
         return state.filter(pizza => pizza.id != action.payload.id);
+    }else if (action.type === 'CLEAR_CART'){
+        console.log ('CLEAR CART')
+        return [];
     }
     return state;
 };
