@@ -13,8 +13,7 @@ function Header() {
         return sum.toFixed(2);
     }
     return (
-        
-        <header className='App-header'>
+        <header id="navbar" className='App-header'>
             <img src="images/edawhite.png" alt="eda" />
             <h1 className='App-title'>EDA Pizza</h1>
             <div id="totalPrice">

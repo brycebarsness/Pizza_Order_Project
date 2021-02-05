@@ -7,6 +7,7 @@
     text-align: left;
     display: flex;
     justify-content: space-evenly;
+    z-index: 100;
   }
   
   .App-title {
@@ -17,3 +18,8 @@
     display: inline-block;
     margin-top: 20px;
   }
+
+  .stickyHeader {
+    position: fixed;
+    width: 100%;
+    }
