@@ -4,23 +4,14 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function CustomerInfo() {
-  const history = useHistory();
-    
-  const sendNextButton = () => {
-      history.push('/Checkout');
-  }
-
-  const dispatch = useDispatch();
-
-
+    const history = useHistory();
     const dispatch = useDispatch();
-    const history = useHistory()
+
     let [name, setName]= useState('');
     let [street, setStreet] = useState('');
     let [city, setCity]= useState('');
     let [zip, setZip]= useState('');
     let [delivery, setDelivery]= useState(false);
-    
 
    const resetInput = event =>{
         console.log( 'resetInput');
@@ -31,33 +22,21 @@ function CustomerInfo() {
       setDelivery(false)
    }
 
-  const resetInput = event => {
-    console.log('resetInput', event.target.value);
-      setName('');
-      setStreet('');
-      setCity('');
-      setZip('');
-      setDelivery(false);
-
-
-  } // end handleChange
-
   const handleSubmit = event => {
     event.preventDefault();
     let customerInfo = {
-
-                        customer_name: name, 
-                        street_address: street, 
-                        city: city, 
-                        zip: zip, 
-                        delivery: delivery
-                    };
+    customer_name: name, 
+    street_address: street, 
+    city: city, 
+    zip: zip, 
+    delivery: delivery
+    };
     dispatch( { type: 'CUSTOMER_INFO', payload: customerInfo } );
     console.log(`in customerInfo form`, {name, street, city, zip, delivery});
-    history.push('/Checkout')
-
+    history.push('/Checkout') 
     resetInput();
-  }
+                  }
+
   return (
     <div id="customerInfo">
       <h1>Step 2: Customer Information</h1>
@@ -132,7 +111,6 @@ function CustomerInfo() {
         </div>
         </div>
         <button 
-        onClick={()=> sendNextButton()}
         class="btn-lg btn-info" type="submit">
           Next
         </button>
@@ -140,7 +118,6 @@ function CustomerInfo() {
 
     </div>
   ) //end return
-
 } // end function
 
 export default CustomerInfo;
