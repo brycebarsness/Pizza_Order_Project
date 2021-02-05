@@ -21,10 +21,10 @@ function PizzaItem({ pizza }) {
                     <h5 className="card-title">{pizza.name}</h5>
                     <p className="card-text">{pizza.description}
                     </p>
-                    <p id="price-text">{pizza.price}</p>
+                    <p id="price-text">${pizza.price}</p>
                 </div>
                 <div className="card-footer">
-                    <button className={inCart ? "btn btn-danger" : "btn btn-success" } type="button"
+                    <button className={inCart ? "btn-lg btn-danger" : "btn-lg btn-success" } type="button"
                         onClick={() => {
                             //toggle the button from add to remove:
                             toggleCart();
