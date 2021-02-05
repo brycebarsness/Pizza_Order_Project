@@ -34,7 +34,9 @@ const storeInstance = createStore(
         {
             pizzaList: pizzaList,
 
-            ordersList: ordersList,
+
+            //orderList: orderList,
+
 
             pizzaCart: pizzaCart
 
