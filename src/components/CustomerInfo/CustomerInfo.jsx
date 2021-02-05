@@ -43,8 +43,8 @@ function CustomerInfo() {
 
       <form className="add-customerInfo-form" onSubmit={handleSubmit} >
         <div className="form-group row">
-          <label for="nameInput" class="col-sm-2 col-form-label">Name: </label>
-          <div class="col-sm-10">
+          <label htmlFor="nameInput" className="col-sm-2 col-form-label">Name: </label>
+          <div className="col-sm-10">
             <input
               id="nameInput"
               className="form-control"
@@ -57,8 +57,8 @@ function CustomerInfo() {
           </div>
         </div>
         <div className="form-group row">
-          <label for="addressInput" class="col-sm-2 col-form-label">Address: </label>
-          <div class="col-sm-10">
+          <label for="addressInput" className="col-sm-2 col-form-label">Address: </label>
+          <div className="col-sm-10">
             <input
               id="addressInput"
               className="form-control"
@@ -71,8 +71,8 @@ function CustomerInfo() {
           </div>
         </div>
         <div className="form-group row">
-        <label for="cityInput" class="col-sm-2 col-form-label">City: </label>
-        <div class="col-sm-6">
+        <label htmlFor="cityInput" className="col-sm-2 col-form-label">City: </label>
+        <div className="col-sm-6">
         <input
           id="cityInput"
           className="form-control"
@@ -83,8 +83,8 @@ function CustomerInfo() {
           onChange={(event) => setCity(event.target.value)}
         />
         </div>
-        <label for="zipInput" class="col-sm-2 col-form-label">Zip Code: </label>
-        <div class="col-sm-2">
+        <label htmlFor="zipInput" className="col-sm-2 col-form-label">Zip Code: </label>
+        <div className="col-sm-2">
         <input
           id="zipInput"
           className="form-control"
@@ -97,9 +97,9 @@ function CustomerInfo() {
         </div>
         </div>
         <div className="form-group row">
-        <div class="col-sm-2">Delivery?</div>
-        <div class="col-sm-1">
-        <div class="form-check">
+        <div className="col-sm-2">Delivery?</div>
+        <div className="col-sm-1">
+        <div className="form-check">
         <input
           className="form-check-input"
           type="checkbox"
@@ -111,7 +111,7 @@ function CustomerInfo() {
         </div>
         </div>
         <button 
-        class="btn-lg btn-info" type="submit">
+        className="btn-lg btn-info" type="submit">
           Next
         </button>
       </form>

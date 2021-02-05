@@ -30,15 +30,15 @@ function App() {
       })
   }
 
-  const getOrders = () => { 
-    axios.get('/api/order') 
-      .then( response => { 
-        dispatch({ type: `SET_ORDERS`, payload: response.data }); 
-      }) 
-      .catch( error => { 
-        console.log(`HEY - Can't get orders! ${error}`); 
-        alert(`HEY - Can't get orders!`); 
-      }) 
+  const getOrders = () => {
+    axios.get('/api/order')
+      .then(response => {
+        dispatch({ type: `SET_ORDERS`, payload: response.data });
+      })
+      .catch(error => {
+        console.log(`HEY - Can't get orders! ${error}`);
+        alert(`HEY - Can't get orders!`);
+      })
   }
 
   return (
@@ -59,7 +59,7 @@ function App() {
       </div>
       <Footer />
     </Router>
-    
+
   );
 }
 
