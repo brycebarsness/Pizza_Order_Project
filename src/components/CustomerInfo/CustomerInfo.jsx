@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -13,6 +14,7 @@ function CustomerInfo() {
   const resetInput = event => {
     console.log('resetInput', event.target.value);
     setName(''),
+
       setStreet(''),
       setCity(''),
       setZip(''),
@@ -67,10 +69,12 @@ function CustomerInfo() {
         />
         <input
           required
+
           type="checkbox"
           value={delivery}
           onChange={(event) => setDelivery(event.target.value)}
         />
+
         <button type="submit">
           Next
         </button>
@@ -78,6 +82,7 @@ function CustomerInfo() {
 
     </div>
   ) //end return
+
 
 } // end function
 
