@@ -1,14 +1,47 @@
 # React Pizza Parlor
 
-Before you get started make sure to read through **ALL** requirements and outline a plan for your group. Assign out tasks and use branches to allow team members to work in parallel.
+# Project Name
+
+FEATURE
+With this app, the customer interface will be able to:
+
+-   Order specialty pizzas
+-   See the order total
+-   Select option for delivery
+-   Enter client delivery information
+
+With this app, the Service Side interface will:
+- Display all current orders 
+- Indicate which orders are for delivery
+- 
+
+        
+
+DATABASE SETUP
+-Create a new database with the name pizza_parlor
+-Run sql from the database file
+
+INSTALL AND RUN
+-npm install
+-npm run server
+-cmd +t
+-npm run client 
+
+BUILT WITH
+-React
+-Node.js 
+-Express 
+-PostgreSQL
+
 
 ### Setup
 
-Server side code for baseline functionality has been provided for you. Each member of your team will need to create a `pizza_parlor` database.
+
 
 **Import data**
+- Create a new database with the name pizza_parlor
+- Run sql from the database file
 
-Right now, the owner enters all of the orders in SQL, but they want any of their employees to be able to enter a new order. The owner has provided some of the server side routes and a way to create their database with (`database.sql`). Your team should build out the following views.
 
 **Start your server**
 
@@ -25,25 +58,11 @@ Now that the server is running, open a new terminal tab with `cmd + t` and start
 npm run client
 ```
 
-## Base Mode ad API DOCS
-
-The tasks for Base Mode are broken down further [on this Trello Board](https://trello.com/b/aWXfG8D6/redux-pizza-parlor). Take time before diving into the code to copy this board and build out the plan even further.
-
-After starting up the server, the following routes should be available. You can test them with Postman.
-
-### GET PIZZA  
-
-`/api/pizza`
-
-**Returns** an array of objects with *
-
-*, *name*, *description*, *image_path* and *cost* properties. 
-
-### POST ORDER
+### ORDER Pizza
 
 `/api/order`
 
-**Post Data** should be an object that contains user information, *customer name*, *street address*, *city*, *zip*, *order_total* and an array of pizza id's as object. 
+ 
 
 **Example JSON Post Data:**
 
