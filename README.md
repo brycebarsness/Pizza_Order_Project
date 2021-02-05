@@ -71,7 +71,6 @@ After starting up the server, the following routes should be available. You can 
 
 **Returns** an array of orders.
 
-
 ## BASE REQUIREMENTS
 
 Your client has asked your team to build a pizza ordering system.
@@ -108,7 +107,7 @@ This page **should not** appear in the navigation bar. Eventually the client wou
 - Improve the styling of the app using Material-UI cards, buttons, nav bar and icons.
 - Allow the user to go back to previous pages (until they've completed checkout).
 - Display a list of pizzas for each order on the orders page.
-- Add pictures to the `public/images` folder and update the image url for each pizza in the database.
+x Add pictures to the `public/images` folder and update the image url for each pizza in the database.
 - Add a button on the orders page to track delivery status.
 - Allow admins to click on an order and see all of the details for that order (which pizzas were a part of that particular order). For the details of the order with `id` of `1`, it will be available to anyone with the url [http://localhost:3000/order/1](http://localhost:3000/order/1). This route is not built on the server, so you will need to create it.
 # redux-pizza-parlor

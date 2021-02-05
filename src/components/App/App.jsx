@@ -1,34 +1,30 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import Checkout from '../Checkout/Checkout';
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-
-
-
-
-
-
-  
 
   useEffect(() => {
     getPizzas();
   }, []);
 
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
-  const getPizzas = () => { 
-    axios.get('/api/pizza') 
-      .then( response => { 
-        dispatch({ type: `SET_PIZZAS`, payload: response.data }); 
-      }) 
-      .catch( error => { 
-        console.log(`HEY - Can't get pizzas! ${error}`); 
-        alert(`HEY - Can't get pizzas!`); 
-      }) 
+  const getPizzas = () => {
+    axios.get('/api/pizza')
+      .then(response => {
+        dispatch({ type: `SET_PIZZAS`, payload: response.data });
+      })
+      .catch(error => {
+        console.log(`HEY - Can't get pizzas! ${error}`);
+        alert(`HEY - Can't get pizzas!`);
+      })
   }
 
   const getOrders = () => { 
@@ -44,12 +40,19 @@ function App() {
 
 
   return (
-    <div className='App container'>
+    <Router>
       <Header />
-      <PizzaList getPizzas={getPizzas}/>
-      <OrderList getOrders={getOrders}/>
-  
-    </div>
+
+      <div className='App container'>
+        <Switch>
+        <Route exact path='/' component={PizzaList} getPizzas={getPizzas} />
+        <Route path='/Checkout' component={Checkout} getPizzas={getPizzas} />
+
+
+        </Switch>
+      </div>
+      <Footer />
+    </Router>
   );
 }
 
