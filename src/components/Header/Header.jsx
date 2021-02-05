@@ -1,8 +1,10 @@
 import './Header.css';
 import { useSelector, useDispatch } from 'react-redux';
 import {Link} from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 function Header() {
+    const dispatch = useDispatch()
     //bring in the cart from the store
     const cart = useSelector(store => store.pizzaCart);
     //find the total of all items in the cart
@@ -13,9 +15,12 @@ function Header() {
         }
         return sum.toFixed(2);
     }
+    const resetApp = () => (
+        dispatch ({type: 'CLEAR_CART'})
+    )
     return (
         <header id="navbar" className='App-header'>
-            <Link to="/"><img src="images/edawhite.png" alt="eda" /></Link>
+            <Link to="/"><img onClick={() => resetApp()} src="images/edawhite.png" alt="eda" /></Link>
             <h1 className='App-title'>EDA Pizza</h1>
             <div id="totalPrice">
                 {/*TODO: put the cart before the horse... um, i mean, put the cart in front of the price */}
