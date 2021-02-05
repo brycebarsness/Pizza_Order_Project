@@ -5,6 +5,8 @@ import PizzaList from '../PizzaList/PizzaList.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Checkout from '../Checkout/Checkout';
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
 
@@ -27,16 +29,18 @@ function App() {
 
 
   return (
-    <>
+    <Router>
       <Header />
       <div className='App container'>
+        <Switch>
+        <Route exact path='/' component={PizzaList} getPizzas={getPizzas} />
+        <Route path='/Checkout' component={Checkout} getPizzas={getPizzas} />
 
-        <PizzaList getPizzas={getPizzas} />
 
-
+        </Switch>
       </div>
       <Footer />
-    </>
+    </Router>
   );
 }
 
