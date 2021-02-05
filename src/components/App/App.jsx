@@ -32,15 +32,15 @@ function App() {
       })
   }
 
-  const getOrders = () => { 
-    axios.get('/api/order') 
-      .then( response => { 
-        dispatch({ type: `SET_ORDERS`, payload: response.data }); 
-      }) 
-      .catch( error => { 
-        console.log(`HEY - Can't get orders! ${error}`); 
-        alert(`HEY - Can't get orders!`); 
-      }) 
+  const getOrders = () => {
+    axios.get('/api/order')
+      .then(response => {
+        dispatch({ type: `SET_ORDERS`, payload: response.data });
+      })
+      .catch(error => {
+        console.log(`HEY - Can't get orders! ${error}`);
+        alert(`HEY - Can't get orders!`);
+      })
   }
 
   return (
@@ -50,16 +50,16 @@ function App() {
 
       <div className='App container'>
         <Switch>
-        <Route exact path='/' component={PizzaList} getPizzas={getPizzas} />
-           <Route path='/CustomerInfo' component={CustomerInfo} getPizzas={getPizzas} />
-        <Route path='/Checkout' component={Checkout} getPizzas={getPizzas} />
-        <OrdersList /> 
-        <Route path='/Admin' component={Admin} />
+          <Route exact path='/' component={PizzaList} getPizzas={getPizzas} />
+          <Route path='/CustomerInfo' component={CustomerInfo} getPizzas={getPizzas} />
+          <Route path='/Checkout' component={Checkout} getPizzas={getPizzas} />
+          <OrdersList />
+          <Route path='/Admin' component={Admin} />
         </Switch>
       </div>
       <Footer />
     </Router>
-    
+
   );
 }
 
