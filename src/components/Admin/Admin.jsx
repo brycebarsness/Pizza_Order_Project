@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 
 function OrdersList() {
     const ordersList = useSelector(store => store.ordersList);
+    console.log(ordersList)
 
     return (
         <div>
