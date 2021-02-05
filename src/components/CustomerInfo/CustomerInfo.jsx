@@ -1,6 +1,6 @@
-import React from React;
-import {useState} from React;
+import {useState} from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function CustomerInfo() {
     const dispatch = useDispatch();

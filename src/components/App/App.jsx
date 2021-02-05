@@ -50,6 +50,7 @@ function App() {
       <div className='App container'>
         <Switch>
         <Route exact path='/' component={PizzaList} getPizzas={getPizzas} />
+           <Route path='/CustomerInfo' component={CustomerInfo} getPizzas={getPizzas} />
         <Route path='/Checkout' component={Checkout} getPizzas={getPizzas} />
 
 
