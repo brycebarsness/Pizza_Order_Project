@@ -27,10 +27,22 @@ function App() {
       })
   }
 
+  const getOrders = () => { 
+    axios.get('/api/order') 
+      .then( response => { 
+        dispatch({ type: `SET_ORDERS`, payload: response.data }); 
+      }) 
+      .catch( error => { 
+        console.log(`HEY - Can't get orders! ${error}`); 
+        alert(`HEY - Can't get orders!`); 
+      }) 
+  }
+
 
   return (
     <Router>
       <Header />
+
       <div className='App container'>
         <Switch>
         <Route exact path='/' component={PizzaList} getPizzas={getPizzas} />
