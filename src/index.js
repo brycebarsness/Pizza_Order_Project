@@ -32,6 +32,13 @@ const ordersList = (state =[], action) => {
     return state; 
 }
 
+const customerInfo = (state =[], action) => {
+    if (action.type === 'CUSTOMER_INFO') {
+        return action.payload;
+    }
+    return state; 
+}
+
 const storeInstance = createStore(
     combineReducers(
         {
@@ -41,8 +48,9 @@ const storeInstance = createStore(
             ordersList: ordersList,
 
 
-            pizzaCart: pizzaCart
+            pizzaCart: pizzaCart,
 
+            customerInfo: customerInfo
         }
     )
 );

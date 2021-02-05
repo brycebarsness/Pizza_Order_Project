@@ -10,13 +10,11 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Checkout from '../Checkout/Checkout';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import OrdersList from '../Admin/Admin';
 
 function App() {
 
   useEffect(() => {
     getPizzas();
-    getOrders();
   }, []);
 
   const dispatch = useDispatch();
@@ -51,10 +49,12 @@ function App() {
       <div className='App container'>
         <Switch>
         <Route exact path='/' component={PizzaList} getPizzas={getPizzas} />
-           <Route path='/CustomerInfo' component={CustomerInfo} getPizzas={getPizzas} />
+        <Route path='/CustomerInfo' component={CustomerInfo} getPizzas={getPizzas} />
         <Route path='/Checkout' component={Checkout} getPizzas={getPizzas} />
+
         <OrdersList /> 
         <Route path='/Admin' component={Admin} />
+
         </Switch>
       </div>
       <Footer />
