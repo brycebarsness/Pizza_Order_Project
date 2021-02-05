@@ -1,0 +1,24 @@
+#dataFromState{
+text-align: left;
+display: flex;
+justify-content: space-between;
+}
+
+p{
+    margin: 0;
+}
+
+#pickupType{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+#checkoutPrice{
+    font-size: 2em;
+    font-weight: bold;
+}
+button{
+    float: right;
+}
+#totalDiv{
+    text-align: right;
+}

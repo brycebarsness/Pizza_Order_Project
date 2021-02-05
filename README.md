@@ -37,12 +37,6 @@ After starting up the server, the following routes should be available. You can 
 
 **Returns** an array of objects with *
 
-
-
-
-
-
-
 *, *name*, *description*, *image_path* and *cost* properties. 
 
 ### POST ORDER
@@ -77,14 +71,13 @@ After starting up the server, the following routes should be available. You can 
 
 **Returns** an array of orders.
 
-
 ## BASE REQUIREMENTS
 
 Your client has asked your team to build a pizza ordering system.
 
 ### ORDER - SELECT PIZZA
 
-When visiting [http://localhost:3000/](http://localhost:3000/) display all of the pizzas on the screen. Allow users to add or remove each pizza they would like to order. **For base mode, only allow the user to have one of each pizza in their cart.** Show the total cost of items in the cart in the top right of this page. 
+When visiting [http://localhost:3000/](http://localhost:3000/) display all of the pizzas on the screen. Allow users to add or remove each pizza they would like to order. **For base mode, only allow the user to have one of each pizza in their cart.** Show the total cost of items in the cart in the top right of this page.
 
 This page should have a next button that brings the user to the **enter order details page**.
 
@@ -114,7 +107,7 @@ This page **should not** appear in the navigation bar. Eventually the client wou
 - Improve the styling of the app using Material-UI cards, buttons, nav bar and icons.
 - Allow the user to go back to previous pages (until they've completed checkout).
 - Display a list of pizzas for each order on the orders page.
-- Add pictures to the `public/images` folder and update the image url for each pizza in the database.
+x Add pictures to the `public/images` folder and update the image url for each pizza in the database.
 - Add a button on the orders page to track delivery status.
 - Allow admins to click on an order and see all of the details for that order (which pizzas were a part of that particular order). For the details of the order with `id` of `1`, it will be available to anyone with the url [http://localhost:3000/order/1](http://localhost:3000/order/1). This route is not built on the server, so you will need to create it.
 # redux-pizza-parlor

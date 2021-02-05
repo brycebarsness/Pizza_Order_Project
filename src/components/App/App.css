@@ -1,15 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-header {
-  background-color: #222;
-  height: 70px;
+  min-height: 100%;
   padding: 20px;
-  color: white;
-  margin-bottom: 20px;
-}
-
-.App-title {
-  font-size: 2em;
+  padding-bottom: 160px;
 }

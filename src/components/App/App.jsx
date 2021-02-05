@@ -1,21 +1,62 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
+
+import PizzaList from '../PizzaList/PizzaList.jsx';
+import { useSelector, useDispatch } from 'react-redux';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import Checkout from '../Checkout/Checkout';
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
 
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
-  
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
-      <CustomerInfo/>
-    </div>
+  useEffect(() => {
+    getPizzas();
+  }, []);
 
+  const dispatch = useDispatch();
+
+  const getPizzas = () => {
+    axios.get('/api/pizza')
+      .then(response => {
+        dispatch({ type: `SET_PIZZAS`, payload: response.data });
+      })
+      .catch(error => {
+        console.log(`HEY - Can't get pizzas! ${error}`);
+        alert(`HEY - Can't get pizzas!`);
+      })
+  }
+
+  const getOrders = () => { 
+    axios.get('/api/order') 
+      .then( response => { 
+        dispatch({ type: `SET_ORDERS`, payload: response.data }); 
+      }) 
+      .catch( error => { 
+        console.log(`HEY - Can't get orders! ${error}`); 
+        alert(`HEY - Can't get orders!`); 
+      }) 
+  }
+
+
+  return (
+
+    <Router>
+      <Header />
+
+      <div className='App container'>
+        <Switch>
+        <Route exact path='/' component={PizzaList} getPizzas={getPizzas} />
+        <Route path='/Checkout' component={Checkout} getPizzas={getPizzas} />
+
+
+        </Switch>
+      </div>
+      <Footer />
+    </Router>
 
   );
 }
