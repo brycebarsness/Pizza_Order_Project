@@ -4,6 +4,12 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function CustomerInfo() {
+  const history = useHistory();
+    
+  const sendNextButton = () => {
+      history.push('/Checkout');
+  }
+
   const dispatch = useDispatch();
 
   let [name, setName] = useState('');
@@ -110,7 +116,9 @@ function CustomerInfo() {
         </div>
         </div>
         </div>
-        <button class="btn-lg btn-info" type="submit">
+        <button 
+        onClick={()=> sendNextButton()}
+        class="btn-lg btn-info" type="submit">
           Next
         </button>
       </form>
@@ -121,16 +129,3 @@ function CustomerInfo() {
 } // end function
 
 export default CustomerInfo;
-/*
-<div class="form-group row">
-    <div class="col-sm-2">Checkbox</div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck1">
-        <label class="form-check-label" for="gridCheck1">
-          Example checkbox
-        </label>
-      </div>
-    </div>
-  </div>
-  */
