@@ -22,12 +22,19 @@ const pizzaCart = (state = [], action) => {
     return state;
 };
 
+const ordersList = (state =[], action) => {
+    if (action.type === 'SET_ORDERS') {
+        return action.payload;
+    }
+    return state; 
+}
+
 const storeInstance = createStore(
     combineReducers(
         {
             pizzaList: pizzaList,
 
-            orderList: orderList,
+            ordersList: ordersList,
 
             pizzaCart: pizzaCart
 
