@@ -1,134 +1,128 @@
 
-import {useState} from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function CustomerInfo() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    let [name, setName]= useState('');
-    let [street, setStreet] = useState('');
-    let [city, setCity]= useState('');
-    let [zip, setZip]= useState('');
-    let [delivery, setDelivery]= useState('false');
-    
-
-   const resetInput = event =>{
-        console.log( 'resetInput', event.target.value );
-      setName(''),
-      setStreet(''),
-      setCity(''),
-      setZip(''),
-      setDelivery('false')
+  let [name, setName] = useState('');
+  let [street, setStreet] = useState('');
+  let [city, setCity] = useState('');
+  let [zip, setZip] = useState('');
+  let [delivery, setDelivery] = useState(false);
 
 
-    } // end handleChange
+  const resetInput = event => {
+    console.log('resetInput', event.target.value);
+      setName('');
+      setStreet('');
+      setCity('');
+      setZip('');
+      setDelivery(false);
 
-    const handleSubmit = event => {
+
+  } // end handleChange
+
+  const handleSubmit = event => {
     event.preventDefault();
     let customerInfo = {
-                        customer_name: name, 
-                        street_address: street, 
-                        city: city, 
-                        zip: zip, 
-                        delivery: delivery
-                    };
-    dispatch( { type: 'CUSTOMER_INFO', payload: customerInfo } );
-    console.log(`in customerInfo form`, {name, street, city, zip, delivery});
+      customer_name: name,
+      street_address: street,
+      city: city,
+      zip: zip,
+      delivery: delivery
+    };
+    dispatch({ type: 'CUSTOMER_INFO', payload: customerInfo });
+    console.log(`in customerInfo form`, { name, street, city, zip, delivery });
     resetInput();
-    }
-        return(
-            <div id="customerInfo">
-                <h1>CustomerInfo</h1>
-                <form onSubmit={handleSubmit} className="add-customerInfo-form">
-        <input 
-          required 
+  }
+  return (
+    <div id="customerInfo">
+      <h1>Step 2: Customer Information</h1>
+
+      <form className="add-customerInfo-form" onSubmit={handleSubmit} >
+        <div className="form-group row">
+          <label for="nameInput" class="col-sm-2 col-form-label">Name: </label>
+          <div class="col-sm-10">
+            <input
+              id="nameInput"
+              className="form-control"
+              required
+              type="text"
+              placeholder="Blaine Booher"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </div>
+        </div>
+        <div className="form-group row">
+          <label for="addressInput" class="col-sm-2 col-form-label">Address: </label>
+          <div class="col-sm-10">
+            <input
+              id="addressInput"
+              className="form-control"
+              required
+              type="text"
+              placeholder="122 1/2 Broadway N."
+              value={street}
+              onChange={(event) => setStreet(event.target.value)}
+            />
+          </div>
+        </div>
+        <div className="form-group row">
+        <label for="cityInput" class="col-sm-2 col-form-label">City: </label>
+        <div class="col-sm-6">
+        <input
+          id="cityInput"
+          className="form-control"
+          required
           type="text"
-          placeholder="name" 
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-        <input 
-          required 
-          type="text"
-          placeholder="street" 
-          value={street}
-          onChange={(event) => setStreet(event.target.value)}
-        />
-        <input 
-          required 
-          type="text"
-          placeholder="city" 
+          placeholder="Fargo"
           value={city}
           onChange={(event) => setCity(event.target.value)}
         />
-        <input 
-          required 
+        </div>
+        <label for="zipInput" class="col-sm-2 col-form-label">Zip Code: </label>
+        <div class="col-sm-2">
+        <input
+          id="zipInput"
+          className="form-control"
+          required
           type="number"
-          placeholder="zip" 
+          placeholder="58103"
           value={zip}
           onChange={(event) => setZip(event.target.value)}
         />
-        <input 
-          required 
-
+        </div>
+        </div>
+        <div className="form-group row">
+        <div class="col-sm-2">Delivery?</div>
+        <div class="col-sm-1">
+        <div class="form-check">
+        <input
+          className="form-check-input"
           type="checkbox"
+          id="deliveryCheckbox"
           value={delivery}
           onChange={(event) => setDelivery(event.target.value)}
         />
-
-          <button type="submit">
+        </div>
+        </div>
+        </div>
+        <button class="btn-lg btn-info" type="submit">
           Next
         </button>
-         </form>
+      </form>
 
-            </div>
-        ) //end return
-        
+    </div>
+  ) //end return
+
 } // end function
 
 export default CustomerInfo;
-
 /*
-<form>
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-    </div>
-  </div>
-  <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-          <label class="form-check-label" for="gridRadios1">
-            First radio
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-          <label class="form-check-label" for="gridRadios2">
-            Second radio
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-          <label class="form-check-label" for="gridRadios3">
-            Third disabled radio
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
-  <div class="form-group row">
+<div class="form-group row">
     <div class="col-sm-2">Checkbox</div>
     <div class="col-sm-10">
       <div class="form-check">
@@ -139,10 +133,4 @@ export default CustomerInfo;
       </div>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
-  </div>
-</form>
-*/
+  */

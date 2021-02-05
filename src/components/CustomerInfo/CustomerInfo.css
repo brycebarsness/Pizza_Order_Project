@@ -1,3 +1,7 @@
 #customerInfo {
     margin-top: 90px;
 }
+#deliveryCheckbox{
+    width: 30px; 
+    height: 30px;
+}
