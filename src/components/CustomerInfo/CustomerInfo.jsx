@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 function CustomerInfo() {
     const dispatch = useDispatch();
-
+    const history = useHistory()
     let [name, setName]= useState('');
     let [street, setStreet] = useState('');
     let [city, setCity]= useState('');
@@ -14,7 +14,7 @@ function CustomerInfo() {
     
 
    const resetInput = event =>{
-        console.log( 'resetInput', event.target.value );
+        console.log( 'resetInput');
       setName(''),
       setStreet(''),
       setCity(''),
@@ -35,6 +35,7 @@ function CustomerInfo() {
                     };
     dispatch( { type: 'CUSTOMER_INFO', payload: customerInfo } );
     console.log(`in customerInfo form`, {name, street, city, zip, delivery});
+    history.push('/Checkout')
     resetInput();
     }
         return(
