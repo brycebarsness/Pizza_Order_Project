@@ -3,6 +3,8 @@ import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+
+
 function Checkout() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -22,15 +24,18 @@ function Checkout() {
         dispatch ({type: 'CLEAR_CART'})
         history.push('/')
     }
+       //grabs the pizza list from the store
+    const customerInfo = useSelector(store => store.customerInfo);
+ 
     return (
         <>
             <h2>Step 3: Checkout</h2>
             <div id="dataFromState">
                 <div id="address">
                     <address>
-                        <p>Mitchell Scott</p>
-                        <p>123 Dummy Data drive</p>
-                        <p>Fargo, ND 56425</p></address>
+                        <p><span>{customerInfo.customer_name}</span></p>
+                        <p><span>{customerInfo.street_address}</span></p>
+                        <p>{customerInfo.city}{customerInfo.zip}</p></address>
                 </div>
                 <div>
                     <span id="pickupType">For Delivery</span>
